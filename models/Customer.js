@@ -1,0 +1,51 @@
+module.exports=(sequelize,DataTypes)=>{
+
+    const Customer=sequelize.define("Customer",{
+        name:{
+            type:DataTypes.STRING,
+            allowNull:false,
+        },
+        email:{
+            type:DataTypes.STRING,
+            allowNull:false,
+            unique:true
+        },
+        number:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            unique:true
+        },
+        address:{
+            type:DataTypes.STRING,
+            allowNull:false,
+        },
+        membership:{
+            type:DataTypes.ENUM('silver','gold','premium'),
+            allowNull:false,
+        },
+        gender:{
+            type:DataTypes.ENUM('male','female'),
+            allowNull:false,
+        },
+        age:{
+            type:DataTypes.INTEGER,
+            allowNull:false
+        },
+        weight:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+        },
+        height:{
+            type:DataTypes.INTEGER,
+            allowNull:false,
+        },
+        status:{
+                type:DataTypes.ENUM('active','inactive'),
+                allowNull:false,
+            
+        }
+    },{
+        timestamps:false,
+    })
+    return Customer;
+}
